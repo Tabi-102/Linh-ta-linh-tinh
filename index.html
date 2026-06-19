@@ -1,1 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<!-- Apply any saved theme before first paint, so a returning visitor never sees a flash of the server-rendered theme switching to their saved one -->
+<script>try{var t=localStorage.getItem('md-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(_){}</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exam_Dai_so</title>
+<!-- Preconnect to font origins first, then load with display=swap to avoid render-block -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous" media="print" onload="this.media='all'">
+<style>
+:root,[data-theme=light]{
+  color-scheme:light;
+  --bg:#faf9f5;--surface:#f1eee7;--surface2:#f5f3ef;
+  --border:#dedad4;--border-soft:#eae7e2;
+  --text:#1a1916;--text-muted:#5a5751;--text-dim:#9c9890;
+  --accent:#2a6fdb;--accent-soft:rgba(42,111,219,.09);
+  --ok:#1c7a42;--ok-bg:rgba(28,122,66,.08);
+  --yellow:#c18401;--ic-color:#5346be;--ic-bg:rgba(98,92,82,.09);
+  --bq-bar:#2a6fdb;--bq-bg:rgba(42,111,219,.05);
+  --th-bg:#f4f2ee;--scroll:#cac6be;--code-border:#dedad4;
+  --shadow:0 1px 4px rgba(0,0,0,.06);--shadow-md:0 2px 10px rgba(0,0,0,.08);
+  --topbar-bg:#ece7df;--track-shadow:inset 0 2px 4px rgba(0,0,0,.12),inset 0 1px 2px rgba(0,0,0,.08);
+  --pill-bg:#eee7dd;--pill-shadow:0 1px 3px rgba(0,0,0,.12),0 2px 6px rgba(0,0,0,.08);
+  --hl-bg:#f1eee7;--hl-text:#383a42;
+  --hl-kw:#a626a4;--hl-str:#50a14f;--hl-num:#c63666;
+  --hl-dec:#7c3aed;--hl-cls:#c18401;--hl-fn:#4078f2;--hl-cmt:#a0a1a7;
+  --al-note-bg:rgba(42,111,219,.07);--al-note-bd:rgba(42,111,219,.35);--al-note-tx:#2a6fdb;
+  --al-tip-bg:rgba(28,122,66,.07);--al-tip-bd:rgba(28,122,66,.35);--al-tip-tx:#1c7a42;
+  --al-warn-bg:rgba(193,132,1,.07);--al-warn-bd:rgba(193,132,1,.4);--al-warn-tx:#b07800;
+  --al-danger-bg:rgba(185,50,50,.07);--al-danger-bd:rgba(185,50,50,.35);--al-danger-tx:#b03030;
+  --tooltip-bg:#1e2029;--tooltip-txt:#ffffff;
+}
+[data-theme=dark]{
+  color-scheme:dark;
+  --bg:#16181d;--surface:#1e2029;--surface2:#252830;
+  --border:#2e3240;--border-soft:#282c3a;
+  --text:#bcc2cf;--text-muted:#5e6474;--text-dim:#7a8094;
+  --accent:#6b9cf5;--accent-soft:rgba(107,156,245,.13);
+  --ok:#3ec576;--ok-bg:rgba(62,197,118,.1);
+  --yellow:#c4974a;--ic-color:#9d87f0;--ic-bg:rgba(110,118,129,.13);
+  --bq-bar:#6b9cf5;--bq-bg:rgba(107,156,245,.07);
+  --th-bg:#1e2230;--scroll:#303548;--code-border:#272b38;
+  --shadow:0 1px 8px rgba(0,0,0,.45);--shadow-md:0 2px 14px rgba(0,0,0,.38);
+  --topbar-bg:#272b3a;--track-shadow:inset 0 2px 5px rgba(0,0,0,.6),inset 0 1px 3px rgba(0,0,0,.5);
+  --pill-bg:#2e3240;--pill-shadow:0 1px 3px rgba(0,0,0,.5),0 2px 8px rgba(0,0,0,.4);
+  --hl-bg:#1a1d26;--hl-text:#9ba4b5;
+  --hl-kw:#b57ae0;--hl-str:#7dba6a;--hl-num:#4e9e8e;
+  --hl-dec:#9b82e8;--hl-cls:#c4974a;--hl-fn:#6fa8e8;--hl-cmt:#4a5166;
+  --al-note-bg:rgba(107,156,245,.09);--al-note-bd:rgba(107,156,245,.35);--al-note-tx:#7aabf7;
+  --al-tip-bg:rgba(62,197,118,.07);--al-tip-bd:rgba(62,197,118,.28);--al-tip-tx:#3ec576;
+  --al-warn-bg:rgba(196,151,74,.07);--al-warn-bd:rgba(196,151,74,.32);--al-warn-tx:#d4a44e;
+  --al-danger-bg:rgba(220,80,80,.07);--al-danger-bd:rgba(220,80,80,.28);--al-danger-tx:#e06060;
+  --tooltip-bg:#f1eee7;--tooltip-txt:#1a1916;
+}
+</style>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.85;font-size:16px;margin-top:52px}
+html{background:var(--bg);scrollbar-color:var(--scroll) transparent;scrollbar-width:thin}
+::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--scroll);border-radius:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+html.notransition *:not(.tt-pill),html.notransition *:not(.tt-pill)::before,html.notransition *:not(.tt-pill)::after{transition:none!important}
 
+.page{width:100%;height:calc(100vh - 52px);margin:0 auto;display:flex;gap:20px;padding:8px 0 0;align-items:flex-start}
+.main-content{min-width:0;height:100%;flex:1;padding:0 32px 30vh 24px;overflow-x:auto;overflow-y:auto;contain:layout style;scroll-behavior:smooth}
+.page.no-toc{max-width:840px;margin:0 auto}.page.no-toc .main-content{padding:0 24px 30vh;box-sizing:border-box}
+
+.toc-col{width:24vw;height:100%;flex-shrink:0;margin-left:8px;display:flex;flex-direction:column;background:var(--surface);overflow:clip;border:1px solid var(--border);border-radius:6px;transform-origin:left center;transform:translateX(0);opacity:1;transition:transform .22s cubic-bezier(.4,0,.2,1),opacity .22s cubic-bezier(.4,0,.2,1),visibility .22s;will-change:transform,opacity}
+.toc-col.sb-closed{transform:translateX(-110%);opacity:0;visibility:hidden;pointer-events:none;width:0;min-width:0;border:none;margin:0;padding:0}
+@media(max-width:1000px){.toc-col{display:none}.main-content{width:100%;box-sizing:border-box}.page{flex-direction:column;padding:8px 4px 0;box-sizing:border-box;overflow:hidden}}
+
+.toc-header{position:relative;background:var(--surface);padding:12px 12px 8px;font-size:11px;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:.09em;border-bottom:1px solid var(--border-soft);margin-bottom:4px;z-index:10;display:flex;align-items:center}
+.toc-header::after{content:"";position:absolute;top:100%;left:0;width:100%;height:14px;background:var(--surface);-webkit-mask-image:linear-gradient(to bottom,black,transparent);mask-image:linear-gradient(to bottom,black,transparent);pointer-events:none}
+.toc-title{font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);margin:0 auto}
+.toc{flex:1;min-height:0;padding:4px 12px 8px;overflow-x:auto;overflow-y:auto;font-size:13px;box-sizing:border-box}
+#sb-close{position:absolute;right:12px;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:5px;border:none;background:transparent;color:var(--text-muted);cursor:pointer;transition:background .15s,color .15s;flex-shrink:0;padding:0}
+#sb-close:hover{background:var(--surface2);color:var(--text)}
+.toc ul{list-style:none;padding:0;margin:0}.toc ul ul{padding-left:14px;margin-top:2px}
+.toc li{margin:2px 0}.toc a{color:var(--text-muted);text-decoration:none;border-radius:4px;padding:2px 6px;display:block;transition:color .15s,background .15s;line-height:1.5}
+.toc a:hover,.toc a.active{color:var(--accent);background:var(--accent-soft)}
+.toc-empty{color:var(--text-dim);font-style:italic;padding:2px 6px;line-height:1.5;margin:0}
+
+.hljs{background:var(--hl-bg);color:var(--hl-text);font-style:normal}
+.hljs *{font-style:normal}
+.hljs-keyword{color:var(--hl-kw)}.hljs-built_in{color:var(--hl-fn)}
+.hljs-string,.hljs-template-string{color:var(--hl-str)}.hljs-number,.hljs-literal{color:var(--hl-num)}
+.hljs-comment{color:var(--hl-cmt)}.hljs-type,.hljs-attr{color:var(--hl-cls)}
+.hljs-title.function_{color:var(--hl-fn)}.hljs-property,.hljs-variable,.hljs-subst{color:var(--hl-text)}
+.hljs-symbol,.hljs-bullet{color:var(--hl-str)}.hljs-meta,.hljs-meta .hljs-keyword{color:var(--hl-dec)}
+.hljs-meta .hljs-string{color:var(--hl-str)}.hljs-params{color:var(--hl-text)}
+.hljs-section{color:var(--hl-cls)}.hljs-tag{color:var(--hl-kw)}.hljs-name{color:var(--hl-fn)}
+
+.md-body h1,.md-body h2,.md-body h3,.md-body h4{font-family:'Lora',Georgia,serif;font-weight:600;line-height:1.3;color:var(--text)}
+.md-body h1{font-size:2.1em;border-bottom:2px solid var(--border);padding-bottom:.4em;margin:0 0 .75em}
+.md-body h2{font-size:1.55em;border-bottom:1px solid var(--border-soft);padding-bottom:.28em;margin:2em 0 .55em}
+.md-body h3{font-size:1.22em;margin:1.7em 0 .45em}.md-body h4{font-size:1.05em;font-weight:600;margin:1.5em 0 .4em}
+.md-body p{margin:.75em 0}
+.md-body a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s}.md-body a:hover{border-bottom-color:var(--accent)}
+.md-body strong{font-weight:600}.md-body em{font-style:italic}.md-body del{text-decoration:line-through;opacity:.65}
+.md-body hr{border:none;border-top:1px solid var(--border);margin:2.5em 0}
+.md-body img{max-width:100%;border-radius:8px;margin:1em 0;box-shadow:var(--shadow-md)}
+.md-body ul,.md-body ol{padding-left:1.75em;margin:.6em 0}.md-body li{margin:.3em 0}
+.md-body ul>li::marker{color:var(--accent)}.md-body ol>li::marker{color:var(--text-dim);font-weight:600}
+.md-body mark{background:rgba(190,158,0,.18);color:var(--yellow);padding:1px 4px;border-radius:3px}
+.md-body sup{font-size:.75em;vertical-align:super;line-height:1}.md-body sub{font-size:.75em;vertical-align:sub;line-height:1}
+.md-body kbd{font-family:'JetBrains Mono',monospace;font-size:.78em;font-weight:600;background:var(--surface2);border:1px solid var(--border);border-bottom:2.5px solid var(--border);border-radius:5px;padding:2px 6px;color:var(--text)}
+.ic{font-family:'JetBrains Mono','Fira Code',monospace;font-size:.83em;font-weight:500;background:var(--ic-bg);color:var(--ic-color);padding:2px 6px;border-radius:4px;border:1px solid rgba(80,74,60,.1)}
+.md-body :not(pre)>code{font-family:'JetBrains Mono','Fira Code',monospace;font-size:.83em;font-weight:500;background:var(--ic-bg);color:var(--ic-color);padding:2px 6px;border-radius:4px;border:1px solid rgba(80,74,60,.1)}
+.md-body :is(h1,h2,h3,h4,h5,h6,a[id]){scroll-margin-top:4px}
+
+.cbwrap{margin:1.4em 0;border-radius:10px;overflow:hidden;border:1px solid var(--code-border);box-shadow:var(--shadow);contain:layout style paint}
+.cbhead{display:flex;align-items:center;justify-content:space-between;padding:7px 14px;background:var(--hl-bg);border-bottom:1px solid var(--code-border)}
+.cblang{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em}
+.cbcopy{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;background:transparent;border:1px solid var(--code-border);border-radius:5px;color:var(--text-muted);font-size:11px;font-weight:500;cursor:pointer;transition:color .15s,border-color .15s,background .15s;font-family:'Inter',sans-serif;user-select:none}
+.cbcopy:hover{color:var(--text);border-color:var(--accent)}.cbcopy.ok{color:var(--ok);border-color:var(--ok);background:var(--ok-bg)}
+.cbwrap pre{margin:0;border-radius:0;border:none}
+.cbwrap pre code.hljs{display:block;padding:18px 20px;background:var(--hl-bg);font-family:'JetBrains Mono',monospace;font-size:13.5px;font-weight:500;line-height:1.72;border:none;border-radius:0;overflow-x:auto;font-style:normal}
+@media(max-width:600px){.cbwrap pre code.hljs{font-size:12px;padding:14px}}
+
+.md-body blockquote{margin:1.2em 0;padding:12px 18px;border-left:3px solid var(--bq-bar);background:var(--bq-bg);border-radius:0 8px 8px 0;color:var(--text-muted)}.md-body blockquote p{margin:0}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.4em 0;border-radius:8px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.md-body table{width:100%;border-collapse:collapse;font-size:14px}
+.md-body th{background:var(--th-bg);padding:9px 14px;text-align:left;font-size:11px;font-weight:600;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border)}
+.md-body td{padding:9px 14px;border-bottom:1px solid var(--border-soft)}.md-body tr:last-child td{border-bottom:none}
+.md-body tbody tr:nth-child(even){background:var(--th-bg)}.md-body tr:hover td{background:var(--surface2)}
+
+.md-body .task-list-item{list-style:none;display:flex;align-items:flex-start;gap:7px;padding-left:0}
+.md-body ul:has(.task-list-item){padding-left:.6em}
+.md-body .task-list-item>input[type="checkbox"]{flex-shrink:0;margin-top:.6em;accent-color:var(--accent)}
+
+.alert{margin:1.4em 0;padding:13px 18px 13px 16px;border-radius:8px;border:1px solid transparent;border-left-width:4px;font-size:14.5px;line-height:1.7}
+.alert-title{font-weight:700;font-size:12px;margin-bottom:6px;display:flex;align-items:center;gap:7px;text-transform:uppercase;letter-spacing:.07em}
+.alert-title svg{flex-shrink:0}
+.alert-body p:first-child{margin-top:0}.alert-body p:last-child{margin-bottom:0}
+.alert-note,.alert-info{background:var(--al-note-bg);border-color:var(--al-note-bd)}.alert-note .alert-title,.alert-info .alert-title{color:var(--al-note-tx)}
+.alert-tip,.alert-success{background:var(--al-tip-bg);border-color:var(--al-tip-bd)}.alert-tip .alert-title,.alert-success .alert-title{color:var(--al-tip-tx)}
+.alert-warning,.alert-caution{background:var(--al-warn-bg);border-color:var(--al-warn-bd)}.alert-warning .alert-title,.alert-caution .alert-title{color:var(--al-warn-tx)}
+.alert-danger,.alert-error{background:var(--al-danger-bg);border-color:var(--al-danger-bd)}.alert-danger .alert-title,.alert-error .alert-title{color:var(--al-danger-tx)}
+
+.fm-wrap{margin:0 0 2.2em;border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:var(--shadow);min-width:400px;overflow-x:auto}
+.fm-wrap table{width:100%;border-collapse:collapse}
+.fm-th{background:var(--th-bg);padding:9px 14px;text-align:left;font-size:11px;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border-soft);border-right:1px solid var(--border);vertical-align:top;white-space:nowrap;width:120px}
+.fm-td{padding:8px 12px;border-bottom:1px solid var(--border-soft);vertical-align:top;font-size:14px}
+.fm-wrap tr:last-child .fm-th,.fm-wrap tr:last-child .fm-td{border-bottom:none}
+.fm-wrap tr:hover .fm-td,.fm-wrap tr:hover .fm-th{background:var(--surface2)}
+.fm-td .tbl-wrap{margin:6px 0;border:1px solid var(--border-soft);border-radius:6px;overflow:hidden;box-shadow:none}
+.fm-td .tbl-wrap table{width:100%;font-size:13px;border-collapse:separate;border-spacing:0}
+.fm-td .tbl-wrap th,.fm-td .tbl-wrap td{border-right:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);padding:6px 10px}
+.fm-td .tbl-wrap th{font-size:10px;font-weight:700;background:var(--surface2);text-transform:uppercase;letter-spacing:.06em}
+.fm-td .tbl-wrap td{font-size:13px}
+.fm-td .tbl-wrap tr:last-child th,.fm-td .tbl-wrap tr:last-child td{border-bottom:none}
+.fm-td .tbl-wrap tr th:last-child,.fm-td .tbl-wrap tr td:last-child{border-right:none}
+.katex{color:var(--text)}.katex-display{overflow-x:auto;margin:1.2em 0;padding:.5em 0}
+
+#topbar{position:fixed;top:0;left:0;right:0;height:52px;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:var(--topbar-bg);background:color-mix(in srgb,var(--topbar-bg) 88%,transparent);backdrop-filter:blur(12px) saturate(1.3);-webkit-backdrop-filter:blur(12px) saturate(1.3);border-bottom:1px solid var(--border-soft);box-shadow:var(--shadow);contain:layout style paint}
+
+#sb-btn{position:relative;display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);cursor:pointer;transition:background .15s,color .15s;font:500 12px/1 'Inter',sans-serif;--tooltip-content:"Open Sidebar"}
+#sb-btn:hover{background:var(--surface2);color:var(--text)}
+#sb-btn::after{content:var(--tooltip-content);display:block;position:absolute;top:30%;left:calc(100% + 6px);transform:translateY(-50%) translateX(-5px);background:var(--tooltip-bg);color:var(--tooltip-txt);padding:6px 12px;font-size:11px;font-weight:500;white-space:nowrap;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s;border-radius:6px 6px 6px 0;box-shadow:var(--shadow-md)}
+#sb-btn:hover::after{opacity:1;visibility:visible;transform:translateY(-50%) translateX(0)}
+#sb-btn svg{flex-shrink:0;display:block}
+
+#theme-track{display:inline-flex;align-items:center;border-radius:24px;border:1px solid var(--border);background:var(--surface);box-shadow:var(--track-shadow);padding:3px;cursor:pointer;position:relative;user-select:none}
+#theme-track .tt-pill{position:absolute;inset:3px auto 3px 3px;width:calc(50% - 3px);border-radius:21px;background:var(--pill-bg);box-shadow:var(--pill-shadow);z-index:0;pointer-events:none;transition:translate .22s cubic-bezier(.4,0,.2,1);border:1px solid rgba(0,0,0,.07)}
+[data-theme=dark] #theme-track .tt-pill{border-color:rgba(255,255,255,.05)}
+#theme-track:has(.tt-opt:nth-child(3).active) .tt-pill{translate:calc(100% + 0px) 0}
+#theme-track.animating .tt-pill{will-change:translate}
+#theme-track .tt-opt{display:inline-flex;align-items:center;justify-content:center;gap:4px;height:29px;padding:0 12px;border-radius:21px;z-index:1;position:relative;transition:color .18s;font-size:12px;font-weight:600;font-family:'Inter',sans-serif;color:var(--text-muted);box-sizing:border-box;flex:1 0 auto}
+#theme-track .tt-opt.active{color:var(--accent)}
+#theme-track .tt-opt svg{flex-shrink:0}
+#theme-track .tt-label{display:inline;white-space:nowrap}
+@media(min-width:520px){#theme-track .tt-label{display:inline}}
+
+@media print{.toc,.cbcopy,#topbar{display:none}.main-content{padding:0}.cbwrap,.tbl-wrap{break-inside:avoid}body{padding-top:0}}
+</style>
+
+</head>
+<body>
+<div id="topbar"><button id="sb-btn" aria-label="Toggle sidebar" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/><line x1="6" y1="1.5" x2="6" y2="16.5" stroke="currentColor" stroke-width="1.5"/><line x1="9" y1="6" x2="14" y2="6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><line x1="9" y1="9" x2="14" y2="9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><line x1="9" y1="12" x2="14" y2="12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button><div id="theme-track" role="radiogroup" aria-label="Color theme"><div class="tt-pill"></div><div class="tt-opt active" role="radio" aria-checked="true" tabindex="0" data-val="light" title="Light"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><span class="tt-label">Light</span></div><div class="tt-opt" role="radio" aria-checked="false" tabindex="-1" data-val="dark" title="Dark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span class="tt-label">Dark</span></div></div></div>
+<div class="page"><aside class="toc-col"><div class="toc-header"><div class="toc-title">Contents</div><button id="sb-close" aria-label="Close sidebar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><nav class="toc"><ul><li><a href="#qc6d39fa">1. Билинейная форма — dạng song tuyến</a><ul><li><a href="#nfd8787">Ý nghĩa bằng tiếng Việt</a></li><li><a href="#i48d7782">Cách nói bằng tiếng Nga</a></li><li><a href="#p675c2b9">Thầy có thể hỏi</a></ul></li></li><li><a href="#pb34f479">2. Квадратичная форма — dạng toàn phương</a><ul><li><a href="#rfd813b">Ý nghĩa bằng tiếng Việt</a></li><li><a href="#n43357f7">Liên hệ với bilinear form</a></li><li><a href="#p18d72c9">Cách nói bằng tiếng Nga</a></li><li><a href="#ob75ca98">Thầy có thể hỏi</a></ul></li></li><li><a href="#o680e868">3. Канонический вид квадратичной формы</a><ul><li><a href="#l11ca515">Ý nghĩa bằng tiếng Việt</a></li><li><a href="#q5b08c7a">Cách nói bằng tiếng Nga</a></li><li><a href="#j65caa73">Thầy có thể hỏi</a></ul></li></li><li><a href="#i03df3a2">4. Нормальный вид квадратичной формы</a><ul><li><a href="#pd1c9ec9">Ý nghĩa bằng tiếng Việt</a></li><li><a href="#u1b0862e">Cách nói bằng tiếng Nga</a></li><li><a href="#t2910a7d">Câu cực quan trọng</a></ul></li></li><li><a href="#rc85f47b">5. Индексы инерции квадратичной формы</a><ul><li><a href="#t91cb1ad">Ý nghĩa bằng tiếng Việt</a></li><li><a href="#idb07fe2">Cách nói bằng tiếng Nga</a></li><li><a href="#ie5ef5a2">Thầy có thể hỏi</a></ul></li></li><li><a href="#n8de6e87">6. Закон инерции квадратичной формы</a><ul><li><a href="#o51ee9f8">Ý nghĩa bằng tiếng Việt</a></li><li><a href="#jb36ba3">Cách nói bằng tiếng Nga</a></ul></li></li><li><a href="#l7568245">7. Знакоопределённость квадратичной формы</a><ul><li><a href="#tc1ef4fd">Ý nghĩa bằng tiếng Việt</a><ul><li><a href="#t2792d3d">1. Положительно определённая</a></li><li><a href="#s98027cc">2. Отрицательно определённая</a></li><li><a href="#hf67cbe1">3. Неопределённая</a></li><li><a href="#te7091dd">4. Полуопределённая</a></ul></li></li><li><a href="#v2b5b53f">Cách nói bằng tiếng Nga</a></ul></li></li><li><a href="#jd9b6483">8. Критерий Сильвестра</a><ul><li><a href="#tf21384d">Ý nghĩa bằng tiếng Việt</a></li><li><a href="#j316df83">Xác định dương</a></li><li><a href="#q294834a">Xác định âm</a></li><li><a href="#gb5ad60">Cách nói bằng tiếng Nga</a></ul></li></li><li><a href="#o40aa88">9. Скалярное произведение</a><ul><li><a href="#ua21306e">Ý nghĩa bằng tiếng Việt</a></li><li><a href="#nab5c1d7">Cách nói bằng tiếng Nga</a></ul></li></li><li><a href="#jb3c0d3">10. Векторное произведение</a><ul><li><a href="#o30fdc48">Ý nghĩa bằng tiếng Việt</a></li><li><a href="#ja45df3">Cách nói bằng tiếng Nga</a></ul></li></li><li><a href="#la468405">11. Смешанное произведение</a><ul><li><a href="#h60fe101">Ý nghĩa bằng tiếng Việt</a></li><li><a href="#i2987692">Câu cực quan trọng</a></ul></li></li><li><a href="#l2cc93d5">12. Прямая на плоскости</a><ul><li><a href="#l529c3e5">1. Общий вид</a></li><li><a href="#s56f5c8c">2. Параметрический вид</a></li><li><a href="#ha1bcde1">3. Канонический вид</a></li><li><a href="#r1a46a8b">Cách nói bằng tiếng Nga</a></ul></li></li><li><a href="#t2de163d">13. Прямая в пространстве</a><ul><li><a href="#u924ec1e">Параметрический вид</a></li><li><a href="#u9bec8de">Канонический вид</a></li><li><a href="#ga69fb0">Cách nói bằng tiếng Nga</a></ul></li></li><li><a href="#o6aa428">14. Условие параллельности двух прямых</a><ul><li><a href="#qc12290a">Ý nghĩa bằng tiếng Việt</a></li><li><a href="#v0a6a78f">Cách nói bằng tiếng Nga</a></ul></li></li><li><a href="#qf185c2a">15. Плоскость в пространстве</a><ul><li><a href="#uba9d13e">Dạng tổng quát</a></li><li><a href="#k54e44f4">Qua điểm và vector pháp tuyến</a></li><li><a href="#i4a8ec72">Cách nói bằng tiếng Nga</a></ul></li></li><li><a href="#s3c9b76c">16. Условие ортогональности двух плоскостей</a><ul><li><a href="#s2a8e94c">Cách nói bằng tiếng Nga</a></ul></li></li><li><a href="#q69a49ea">17. Кривая второго порядка</a><ul><li><a href="#ub152f8e">Ý nghĩa bằng tiếng Việt</a></li><li><a href="#p1a8e7b9">Cách nói bằng tiếng Nga</a></ul></li></li><li><a href="#md662186">18. Эллипс</a><ul><li><a href="#u128326e">Dạng chính tắc</a></li><li><a href="#h7d92ab1">Эксцентриситет эллипса</a></li><li><a href="#tda8fa9d">Cách nói bằng tiếng Nga</a></ul></li></li><li><a href="#s839181c">19. Гипербола</a><ul><li><a href="#hf25f0b1">Dạng chính tắc</a></li><li><a href="#hcac0121">Cách nói bằng tiếng Nga</a></ul></li></li><li><a href="#v3e6722f">20. Парабола</a><ul><li><a href="#q225f56a">Dạng chính tắc</a></li><li><a href="#kdac02b4">Cách nói bằng tiếng Nga</a></ul></li></li><li><a href="#t04f943d">21. Liên hệ giữa quadratic forms và conics</a><ul><li><a href="#qfac05da">Cách nói bằng tiếng Nga</a></ul></li></li><li><a href="#h9d0ad01">22. Bộ câu trả lời ngắn cần thuộc</a><ul><li><a href="#s974553c">1. Что такое квадратичная форма?</a></li><li><a href="#qecd5c5a">2. Что такое канонический вид квадратичной формы?</a></li><li><a href="#kb405094">3. Что такое нормальный вид квадратичной формы?</a></li><li><a href="#if3d0542">4. Любую ли квадратичную форму можно привести к нормальному виду?</a></li><li><a href="#o9f58928">5. Что такое индекс инерции?</a></li><li><a href="#n676dc57">6. Что такое критерий Сильвестра?</a></li><li><a href="#s94751ec">7. Геометрический смысл скалярного произведения?</a></li><li><a href="#l1b47fd5">8. Геометрический смысл векторного произведения?</a></li><li><a href="#n3f69757">9. Геометрический смысл смешанного произведения?</a></li><li><a href="#tcac12fd">10. Условие параллельности двух прямых?</a></li><li><a href="#ha634131">11. Условие ортогональности двух плоскостей?</a></li><li><a href="#t6fc798d">12. Что такое кривая второго порядка?</a></li><li><a href="#vcb5612f">13. Что такое эксцентриситет эллипса?</a></li><li><a href="#rdedb09b">14. Как связаны квадратичные формы и кривые второго порядка?</a></ul></li></li><li><a href="#tc4e3acd">23. Cách bạn nên học phần này ngay bây giờ</a><ul><li><a href="#qecec81a">Lượt 1 — đọc hiểu tiếng Việt</a></li><li><a href="#h7739f1">Lượt 2 — học câu tiếng Nga</a></li><li><a href="#r24efa2b">Lượt 3 — tự trả lời không nhìn tài liệu</a></li></ul></li></ul></nav></aside><div class="main-content"><article class="md-body">
+
+<p><strong>Базовый минимум</strong></p>
+<h1>1. Билинейная форма — dạng song tuyến<a id="qc6d39fa"></a></h1>
+<h2>Ý nghĩa bằng tiếng Việt<a id="nfd8787"></a></h2>
+<p><strong>Билинейная форма</strong> là một biểu thức phụ thuộc vào <strong>hai vector</strong> (x) và (y), và tuyến tính theo từng biến.</p>
+<p>Dạng ma trận:</p>
+<p>$$
+B(x,y)=x^T A y
+$$</p>
+<p>Trong đó:</p>
+<p>$$
+x=
+\begin{pmatrix}
+x_1\\
+x_2\\
+\vdots\\
+x_n
+\end{pmatrix},
+\quad
+y=
+\begin{pmatrix}
+y_1\\
+y_2\\
+\vdots\\
+y_n
+\end{pmatrix}
+$$</p>
+<p>Còn (A) là ma trận của dạng song tuyến.</p>
+<p>Ví dụ đơn giản:</p>
+<p>$$
+B(x,y)=2x_1y_1+3x_1y_2-x_2y_1+5x_2y_2
+$$</p>
+<p>Đây là bilinear form vì mỗi hạng tử có một biến từ (x), một biến từ (y).</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="i48d7782"></a></h2>
+<blockquote>
+<p><strong>Билинейная форма</strong> — это функция двух векторов, линейная по каждому аргументу. В матричном виде она записывается как</p>
+<p>$$ B(x,y)=x^T A y,$$
+где (A) — матрица билинейной формы.</p>
+</blockquote>
+<p>Dịch ý: dạng song tuyến là hàm của hai vector, tuyến tính theo từng đối số.</p>
+<hr />
+<h2>Thầy có thể hỏi<a id="p675c2b9"></a></h2>
+<p><strong>Вопрос:</strong> Что такое билинейная форма?</p>
+<p><strong>Ответ:</strong></p>
+<blockquote>
+<p>Билинейная форма — это функция двух векторов, линейная по каждому аргументу. В матричном виде:<br />
+$$ B(x,y)=x^T A y.$$</p>
+</blockquote>
+<hr />
+<h1>2. Квадратичная форма — dạng toàn phương<a id="pb34f479"></a></h1>
+<h2>Ý nghĩa bằng tiếng Việt<a id="rfd813b"></a></h2>
+<p><strong>Квадратичная форма</strong> là biểu thức bậc hai theo tọa độ của một vector.</p>
+<p>Dạng tổng quát:</p>
+<p>$$
+Q(x)=\sum_{i,j=1}^{n} a_{ij}x_i x_j
+$$</p>
+<p>Dạng ma trận:</p>
+<p>$$
+Q(x)=x^T A x
+$$</p>
+<p>Ví dụ:</p>
+<p>$$
+Q(x_1,x_2)=2x_1^2+4x_1x_2+3x_2^2
+$$</p>
+<p>Đây là quadratic form vì tất cả hạng tử đều bậc 2.</p>
+<hr />
+<h2>Liên hệ với bilinear form<a id="n43357f7"></a></h2>
+<p>Nếu trong bilinear form (B(x,y)), ta cho (y=x), thì được quadratic form:</p>
+<p>$$
+Q(x)=B(x,x)
+$$</p>
+<p>Ví dụ:</p>
+<p>$$
+B(x,y)=x^T A y
+$$</p>
+<p>thì:</p>
+<p>$$
+Q(x)=B(x,x)=x^T A x
+$$</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="p18d72c9"></a></h2>
+<blockquote>
+<p><strong>Квадратичная форма</strong> — это однородный многочлен второй степени от координат вектора. В матричном виде она записывается как<br />
+$$ Q(x)=x^T A x.$$</p>
+</blockquote>
+<p>Từ quan trọng:</p>
+<ul>
+<li><strong>однородный многочлен</strong>: đa thức thuần nhất;</li>
+<li><strong>второй степени</strong>: bậc hai;</li>
+<li><strong>координаты вектора</strong>: tọa độ của vector.</li>
+</ul>
+<hr />
+<h2>Thầy có thể hỏi<a id="ob75ca98"></a></h2>
+<p><strong>Вопрос:</strong> Что такое квадратичная форма?</p>
+<p><strong>Ответ:</strong></p>
+<blockquote>
+<p>Квадратичная форма — это однородный многочлен второй степени от координат вектора. В матричном виде:<br />
+$$Q(x)=x^T A x.$$</p>
+</blockquote>
+<hr />
+<h1>3. Канонический вид квадратичной формы<a id="o680e868"></a></h1>
+<h2>Ý nghĩa bằng tiếng Việt<a id="l11ca515"></a></h2>
+<p><strong>Канонический вид</strong> là dạng mà quadratic form đã được biến đổi để <strong>không còn tích chéo</strong> như (x_1x_2), (x_1x_3), v.v.</p>
+<p>Ví dụ ban đầu:</p>
+<p>$$
+Q(x_1,x_2)=2x_1^2+4x_1x_2+3x_2^2
+$$</p>
+<p>Có tích chéo (4x_1x_2).</p>
+<p>Sau khi đổi biến, nó có thể thành:</p>
+<p>$$
+Q(y_1,y_2)=\lambda_1 y_1^2+\lambda_2 y_2^2
+$$</p>
+<p>Đây là <strong>канонический вид</strong>.</p>
+<p>Tức là dạng:</p>
+<p>$$
+Q=\lambda_1 y_1^2+\lambda_2 y_2^2+\dots+\lambda_n y_n^2
+$$</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="q5b08c7a"></a></h2>
+<blockquote>
+<p><strong>Канонический вид квадратичной формы</strong> — это вид, в котором отсутствуют смешанные произведения переменных, то есть форма записана как сумма квадратов с коэффициентами:
+$$ Q=\lambda_1 y_1^2+\lambda_2 y_2^2+\dots+\lambda_n y_n^2.$$</p>
+</blockquote>
+<hr />
+<h2>Thầy có thể hỏi<a id="j65caa73"></a></h2>
+<p><strong>Вопрос:</strong> Что такое канонический вид квадратичной формы?</p>
+<p><strong>Ответ:</strong></p>
+<blockquote>
+<p>Это вид квадратичной формы без смешанных членов. Она записывается как сумма квадратов с коэффициентами:
+$$ Q=\lambda_1 y_1^2+\dots+\lambda_n y_n^2.$$</p>
+</blockquote>
+<hr />
+<h1>4. Нормальный вид квадратичной формы<a id="i03df3a2"></a></h1>
+<h2>Ý nghĩa bằng tiếng Việt<a id="pd1c9ec9"></a></h2>
+<p><strong>Нормальный вид</strong> là dạng còn đơn giản hơn canonical form.</p>
+<p>Trong canonical form, hệ số có thể là (5), (-3), (7), v.v.</p>
+<p>Ví dụ:</p>
+<p>$$
+Q=5y_1^2-3y_2^2+7y_3^2
+$$</p>
+<p>Ta có thể đổi biến tiếp để hệ số chỉ còn:</p>
+<p>$$
+1,\ -1,\ 0
+$$</p>
+<p>Ví dụ:</p>
+<p>$$
+Q=z_1^2-z_2^2+z_3^2
+$$</p>
+<p>Đây là <strong>нормальный вид</strong>.</p>
+<p>Dạng chung:</p>
+<p>$$
+Q=z_1^2+\dots+z_p^2-z_{p+1}^2-\dots-z_{p+q}^2
+$$</p>
+<p>Có thể có thêm các biến hệ số 0 nếu dạng suy biến.</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="u1b0862e"></a></h2>
+<blockquote>
+<p><strong>Нормальный вид квадратичной формы</strong> — это вид, в котором коэффициенты при квадратах равны только (1), (-1) или (0):
+$$Q=z_1^2+\dots+z_p^2-z_{p+1}^2-\dots-z_{p+q}^2.$$</p>
+</blockquote>
+<hr />
+<h2>Câu cực quan trọng<a id="t2910a7d"></a></h2>
+<p><strong>Вопрос:</strong> Любую ли квадратичную форму можно привести к нормальному виду?</p>
+<p><strong>Ответ:</strong></p>
+<blockquote>
+<p>Да, любую квадратичную форму над вещественным пространством можно привести к нормальному виду невырожденным линейным преобразованием.</p>
+</blockquote>
+<p>Dịch: Có, mọi dạng quadratic trên không gian thực đều có thể đưa về normal form bằng biến đổi tuyến tính không suy biến.</p>
+<hr />
+<h1>5. Индексы инерции квадратичной формы<a id="rc85f47b"></a></h1>
+<h2>Ý nghĩa bằng tiếng Việt<a id="t91cb1ad"></a></h2>
+<p>Khi đưa quadratic form về normal form:</p>
+<p>$$
+Q=z_1^2+z_2^2-z_3^2
+$$</p>
+<p>Ta thấy có:</p>
+<ul>
+<li>2 dấu dương;</li>
+<li>1 dấu âm;</li>
+<li>0 hệ số bằng 0.</li>
+</ul>
+<p>Vậy:</p>
+<p>$$
+p=2,\quad q=1
+$$</p>
+<p>Đây gọi là <strong>индексы инерции</strong>.</p>
+<p>Nói đơn giản:</p>
+<blockquote>
+<p>Индексы инерции là số lượng dấu (+) và dấu (-) trong normal form.</p>
+</blockquote>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="idb07fe2"></a></h2>
+<blockquote>
+<p><strong>Индексы инерции квадратичной формы</strong> — это количество положительных и отрицательных квадратов в её нормальном виде.</p>
+</blockquote>
+<p>Có thể nói thêm:</p>
+<blockquote>
+<p>Положительный индекс инерции — это число положительных квадратов, отрицательный индекс — число отрицательных квадратов.</p>
+</blockquote>
+<hr />
+<h2>Thầy có thể hỏi<a id="ie5ef5a2"></a></h2>
+<p><strong>Вопрос:</strong> Что такое индекс инерции квадратичной формы?</p>
+<p><strong>Ответ:</strong></p>
+<blockquote>
+<p>Индексы инерции — это количество положительных и отрицательных квадратов в нормальном виде квадратичной формы.</p>
+</blockquote>
+<hr />
+<h1>6. Закон инерции квадратичной формы<a id="n8de6e87"></a></h1>
+<h2>Ý nghĩa bằng tiếng Việt<a id="o51ee9f8"></a></h2>
+<p>Định luật quán tính nói rằng:</p>
+<p>Khi đưa quadratic form về normal form bằng các phép đổi biến khác nhau, số lượng dấu (+), dấu (-), số 0 <strong>không đổi</strong>.</p>
+<p>Ví dụ bạn có thể đưa về:</p>
+<p>$$
+Q=z_1^2+z_2^2-z_3^2
+$$</p>
+<p>Dù dùng phương pháp khác, bạn vẫn sẽ có 2 dấu dương và 1 dấu âm. Không thể thành 1 dấu dương và 2 dấu âm.</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="jb36ba3"></a></h2>
+<blockquote>
+<p><strong>Закон инерции квадратичной формы:</strong> количество положительных, отрицательных и нулевых коэффициентов в нормальном виде квадратичной формы не зависит от невырожденного линейного преобразования.</p>
+</blockquote>
+<p>Bản ngắn hơn:</p>
+<blockquote>
+<p>Число плюсов, минусов и нулей в нормальном виде сохраняется.</p>
+</blockquote>
+<hr />
+<h1>7. Знакоопределённость квадратичной формы<a id="l7568245"></a></h1>
+<h2>Ý nghĩa bằng tiếng Việt<a id="tc1ef4fd"></a></h2>
+<p>Quadratic form có thể:</p>
+<h3>1. Положительно определённая<a id="t2792d3d"></a></h3>
+<p>$$
+Q(x)>0 \quad \text{для всех } x\neq 0
+$$</p>
+<p>Tức là với mọi vector khác 0, giá trị luôn dương.</p>
+<p>Ví dụ:</p>
+<p>$$
+Q=x_1^2+x_2^2
+$$</p>
+<p>luôn dương nếu (x\neq 0).</p>
+<hr />
+<h3>2. Отрицательно определённая<a id="s98027cc"></a></h3>
+<p>$$
+Q(x)<0 \quad \text{для всех } x\neq 0
+$$</p>
+<p>Ví dụ:</p>
+<p>$$
+Q=-x_1^2-x_2^2
+$$</p>
+<p>luôn âm nếu (x\neq 0).</p>
+<hr />
+<h3>3. Неопределённая<a id="hf67cbe1"></a></h3>
+<p>Có lúc dương, có lúc âm.</p>
+<p>Ví dụ:</p>
+<p>$$
+Q=x_1^2-x_2^2
+$$</p>
+<p>Nếu (x=(1,0)):</p>
+<p>$$
+Q=1>0
+$$</p>
+<p>Nếu (x=(0,1)):</p>
+<p>$$
+Q=-1<0
+$$</p>
+<p>Nên đây là <strong>неопределённая форма</strong>.</p>
+<hr />
+<h3>4. Полуопределённая<a id="te7091dd"></a></h3>
+<p>Không âm hoặc không dương, nhưng có thể bằng 0 với vector khác 0.</p>
+<p>Ví dụ:</p>
+<p>$$
+Q=x_1^2
+$$</p>
+<p>Nếu (x=(0,1)), thì:</p>
+<p>$$
+Q=0
+$$</p>
+<p>nhưng (x\neq 0). Vậy đây là <strong>положительно полуопределённая</strong>.</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="v2b5b53f"></a></h2>
+<blockquote>
+<p>Квадратичная форма называется положительно определённой, если<br />
+$$Q(x)>0$$
+для любого ненулевого вектора (x).</p>
+</blockquote>
+<blockquote>
+<p>Квадратичная форма называется отрицательно определённой, если<br />
+$$Q(x)<0$$
+для любого ненулевого вектора (x).</p>
+</blockquote>
+<blockquote>
+<p>Если форма принимает как положительные, так и отрицательные значения, она называется неопределённой.</p>
+</blockquote>
+<hr />
+<h1>8. Критерий Сильвестра<a id="jd9b6483"></a></h1>
+<p>Đây là phần rất quan trọng.</p>
+<h2>Ý nghĩa bằng tiếng Việt<a id="tf21384d"></a></h2>
+<p>Tiêu chuẩn Sylvester dùng để kiểm tra quadratic form có <strong>xác định dương</strong> hoặc <strong>xác định âm</strong> không.</p>
+<p>Cho ma trận đối xứng:</p>
+<p>$$
+A=
+\begin{pmatrix}
+a_{11} & a_{12} & \dots\\
+a_{21} & a_{22} & \dots\\
+\vdots & \vdots & \ddots
+\end{pmatrix}
+$$</p>
+<p>Ta xét các <strong>định thức con chính góc trái trên</strong>:</p>
+<p>$$
+\Delta_1=a_{11}
+$$</p>
+<p>$$
+\Delta_2=
+\begin{vmatrix}
+a_{11} & a_{12}\\
+a_{21} & a_{22}
+\end{vmatrix}
+$$</p>
+<p>$$
+\Delta_3=
+\begin{vmatrix}
+a_{11} & a_{12} & a_{13}\\
+a_{21} & a_{22} & a_{23}\\
+a_{31} & a_{32} & a_{33}
+\end{vmatrix}
+$$</p>
+<hr />
+<h2>Xác định dương<a id="j316df83"></a></h2>
+<p>$$
+Q>0
+$$</p>
+<p>khi và chỉ khi:</p>
+<p>$$
+\Delta_1>0,\quad \Delta_2>0,\quad \dots,\quad \Delta_n>0
+$$</p>
+<hr />
+<h2>Xác định âm<a id="q294834a"></a></h2>
+<p>$$
+Q<0
+$$</p>
+<p>khi và chỉ khi dấu luân phiên:</p>
+<p>$$
+\Delta_1<0,\quad \Delta_2>0,\quad \Delta_3<0,\quad \Delta_4>0,\dots
+$$</p>
+<p>Tức là:</p>
+<p>$$
+(-1)^k\Delta_k>0
+$$</p>
+<p>với (k=1,\dots,n).</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="gb5ad60"></a></h2>
+<blockquote>
+<p>По критерию Сильвестра квадратичная форма положительно определена тогда и только тогда, когда все её главные угловые миноры положительны:
+$$\Delta_1>0,\Delta_2>0,\dots,\Delta_n>0.$$</p>
+</blockquote>
+<blockquote>
+<p>Форма отрицательно определена тогда и только тогда, когда знаки главных угловых миноров чередуются:
+$$\Delta_1<0,\Delta_2>0,\Delta_3<0,\dots$$</p>
+</blockquote>
+<hr />
+<h1>9. Скалярное произведение<a id="o40aa88"></a></h1>
+<h2>Ý nghĩa bằng tiếng Việt<a id="ua21306e"></a></h2>
+<p>Tích vô hướng của hai vector:</p>
+<p>$$
+\vec a\cdot \vec b=|\vec a||\vec b|\cos\varphi
+$$</p>
+<p>Trong tọa độ:</p>
+<p>$$
+\vec a\cdot \vec b=a_1b_1+a_2b_2+\dots+a_nb_n
+$$</p>
+<p>Ý nghĩa hình học:</p>
+<ul>
+<li>liên quan đến góc giữa hai vector;</li>
+<li>dùng để kiểm tra vuông góc;</li>
+<li>dùng để tính hình chiếu.</li>
+</ul>
+<p>Nếu:</p>
+<p>$$
+\vec a\cdot \vec b=0
+$$</p>
+<p>thì hai vector vuông góc.</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="nab5c1d7"></a></h2>
+<blockquote>
+<p>Скалярное произведение двух векторов — это число, равное произведению длин этих векторов на косинус угла между ними:
+$$\vec a\cdot\vec b=|\vec a||\vec b|\cos\varphi.$$
+Если скалярное произведение равно нулю, то векторы ортогональны.</p>
+</blockquote>
+<hr />
+<h1>10. Векторное произведение<a id="jb3c0d3"></a></h1>
+<h2>Ý nghĩa bằng tiếng Việt<a id="o30fdc48"></a></h2>
+<p>Tích có hướng của hai vector (\vec a) và (\vec b) là một vector:</p>
+<p>$$
+\vec a\times \vec b
+$$</p>
+<p>Vector này vuông góc với cả (\vec a) và (\vec b).</p>
+<p>Độ dài của nó:</p>
+<p>$$
+|\vec a\times \vec b|=|\vec a||\vec b|\sin\varphi
+$$</p>
+<p>Ý nghĩa hình học:</p>
+<blockquote>
+<p>Độ dài của tích vector bằng diện tích hình bình hành dựng trên hai vector đó.</p>
+</blockquote>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="ja45df3"></a></h2>
+<blockquote>
+<p>Векторное произведение двух векторов — это вектор, перпендикулярный обоим данным векторам. Его длина равна площади параллелограмма, построенного на этих векторах:
+$$|\vec a\times\vec b|=|\vec a||\vec b|\sin\varphi.$$</p>
+</blockquote>
+<hr />
+<h1>11. Смешанное произведение<a id="la468405"></a></h1>
+<h2>Ý nghĩa bằng tiếng Việt<a id="h60fe101"></a></h2>
+<p>Tích hỗn hợp của ba vector:</p>
+<p>$$
+[\vec a,\vec b,\vec c]=\vec a\cdot(\vec b\times \vec c)
+$$</p>
+<p>Ý nghĩa hình học:</p>
+<p>$$
+|[\vec a,\vec b,\vec c]|
+$$</p>
+<p>bằng thể tích hình hộp dựng trên ba vector.</p>
+<p>Nếu:</p>
+<p>$$
+[\vec a,\vec b,\vec c]=0
+$$</p>
+<p>thì ba vector đồng phẳng.</p>
+<hr />
+<h2>Câu cực quan trọng<a id="i2987692"></a></h2>
+<p><strong>Вопрос:</strong> Какой геометрический смысл у смешанного произведения?</p>
+<p><strong>Ответ:</strong></p>
+<blockquote>
+<p>Модуль смешанного произведения трёх векторов равен объёму параллелепипеда, построенного на этих векторах. Если смешанное произведение равно нулю, то векторы компланарны.</p>
+</blockquote>
+<hr />
+<h1>12. Прямая на плоскости<a id="l2cc93d5"></a></h1>
+<p>Có 3 dạng chính.</p>
+<h2>1. Общий вид<a id="l529c3e5"></a></h2>
+<p>$$
+Ax+By+C=0
+$$</p>
+<p>Ở đây:</p>
+<p>$$
+\vec n=(A,B)
+$$</p>
+<p>là vector pháp tuyến của đường thẳng.</p>
+<hr />
+<h2>2. Параметрический вид<a id="s56f5c8c"></a></h2>
+<p>Nếu đường thẳng đi qua điểm (M_0(x_0,y_0)) và có vector chỉ phương:</p>
+<p>$$
+\vec s=(l,m)
+$$</p>
+<p>thì:</p>
+<p>$$
+x=x_0+lt
+$$</p>
+<p>$$
+y=y_0+mt
+$$</p>
+<hr />
+<h2>3. Канонический вид<a id="ha1bcde1"></a></h2>
+<p>$$
+\frac{x-x_0}{l}=\frac{y-y_0}{m}
+$$</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="r1a46a8b"></a></h2>
+<blockquote>
+<p>Прямая на плоскости может быть задана в общем виде:
+$$Ax+By+C=0,$$
+в параметрическом виде:
+$$x=x_0+lt,\quad y=y_0+mt,$$
+и в каноническом виде:
+$$\frac{x-x_0}{l}=\frac{y-y_0}{m}.$$</p>
+</blockquote>
+<hr />
+<h1>13. Прямая в пространстве<a id="t2de163d"></a></h1>
+<h2>Параметрический вид<a id="u924ec1e"></a></h2>
+<p>Đường thẳng đi qua điểm:</p>
+<p>$$
+M_0(x_0,y_0,z_0)
+$$</p>
+<p>và có vector chỉ phương:</p>
+<p>$$
+\vec s=(l,m,n)
+$$</p>
+<p>thì:</p>
+<p>$$
+x=x_0+lt
+$$</p>
+<p>$$
+y=y_0+mt
+$$</p>
+<p>$$
+z=z_0+nt
+$$</p>
+<hr />
+<h2>Канонический вид<a id="u9bec8de"></a></h2>
+<p>$$
+\frac{x-x_0}{l}=
+\frac{y-y_0}{m}=
+\frac{z-z_0}{n}
+$$</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="ga69fb0"></a></h2>
+<blockquote>
+<p>Прямая в пространстве задаётся точкой (M_0(x_0,y_0,z_0)) и направляющим вектором (\vec s=(l,m,n)). Тогда её параметрические уравнения:
+$$x=x_0+lt,\quad y=y_0+mt,\quad z=z_0+nt.$$
+Канонический вид:
+$$
+\frac{x-x_0}{l}=
+\frac{y-y_0}{m}=
+\frac{z-z_0}{n}.
+$$</p>
+</blockquote>
+<hr />
+<h1>14. Условие параллельности двух прямых<a id="o6aa428"></a></h1>
+<h2>Ý nghĩa bằng tiếng Việt<a id="qc12290a"></a></h2>
+<p>Hai đường thẳng song song nếu vector chỉ phương của chúng song song.</p>
+<p>Trên mặt phẳng:</p>
+<p>$$
+\vec s_1=(l_1,m_1),\quad \vec s_2=(l_2,m_2)
+$$</p>
+<p>Điều kiện:</p>
+<p>$$
+l_1m_2-l_2m_1=0
+$$</p>
+<p>hoặc:</p>
+<p>$$
+\frac{l_1}{l_2}=\frac{m_1}{m_2}
+$$</p>
+<p>Trong không gian:</p>
+<p>$$
+\vec s_1=(l_1,m_1,n_1),\quad \vec s_2=(l_2,m_2,n_2)
+$$</p>
+<p>Điều kiện:</p>
+<p>$$
+\frac{l_1}{l_2}=\frac{m_1}{m_2}=\frac{n_1}{n_2}
+$$</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="v0a6a78f"></a></h2>
+<blockquote>
+<p>Две прямые параллельны, если их направляющие векторы коллинеарны.</p>
+</blockquote>
+<hr />
+<h1>15. Плоскость в пространстве<a id="qf185c2a"></a></h1>
+<h2>Dạng tổng quát<a id="uba9d13e"></a></h2>
+<p>$$
+Ax+By+Cz+D=0
+$$</p>
+<p>Ở đây:</p>
+<p>$$
+\vec n=(A,B,C)
+$$</p>
+<p>là vector pháp tuyến của mặt phẳng.</p>
+<hr />
+<h2>Qua điểm và vector pháp tuyến<a id="k54e44f4"></a></h2>
+<p>Nếu mặt phẳng đi qua điểm:</p>
+<p>$$
+M_0(x_0,y_0,z_0)
+$$</p>
+<p>và có pháp tuyến:</p>
+<p>$$
+\vec n=(A,B,C)
+$$</p>
+<p>thì:</p>
+<p>$$
+A(x-x_0)+B(y-y_0)+C(z-z_0)=0
+$$</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="i4a8ec72"></a></h2>
+<blockquote>
+<p>Плоскость в пространстве задаётся общим уравнением:
+$$Ax+By+Cz+D=0.$$
+Вектор (\vec n=(A,B,C)) является нормальным вектором плоскости.</p>
+</blockquote>
+<hr />
+<h1>16. Условие ортогональности двух плоскостей<a id="s3c9b76c"></a></h1>
+<p>Hai mặt phẳng:</p>
+<p>$$
+A_1x+B_1y+C_1z+D_1=0
+$$</p>
+<p>$$
+A_2x+B_2y+C_2z+D_2=0
+$$</p>
+<p>có vector pháp tuyến:</p>
+<p>$$
+\vec n_1=(A_1,B_1,C_1)
+$$</p>
+<p>$$
+\vec n_2=(A_2,B_2,C_2)
+$$</p>
+<p>Hai mặt phẳng vuông góc nếu:</p>
+<p>$$
+\vec n_1\cdot \vec n_2=0
+$$</p>
+<p>tức là:</p>
+<p>$$
+A_1A_2+B_1B_2+C_1C_2=0
+$$</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="s2a8e94c"></a></h2>
+<blockquote>
+<p>Две плоскости ортогональны, если их нормальные векторы ортогональны:
+$$\vec n_1\cdot\vec n_2=0.$$</p>
+</blockquote>
+<hr />
+<h1>17. Кривая второго порядка<a id="q69a49ea"></a></h1>
+<h2>Ý nghĩa bằng tiếng Việt<a id="ub152f8e"></a></h2>
+<p>Đường bậc hai là tập hợp các điểm trên mặt phẳng thỏa mãn phương trình bậc hai tổng quát:</p>
+<p>$$
+Ax^2+Bxy+Cy^2+Dx+Ey+F=0
+$$</p>
+<p>trong đó ít nhất một trong (A,B,C) khác 0.</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="p1a8e7b9"></a></h2>
+<blockquote>
+<p>Кривая второго порядка — это множество точек плоскости, координаты которых удовлетворяют уравнению второй степени:
+$$Ax^2+Bxy+Cy^2+Dx+Ey+F=0,$$
+где хотя бы один из коэффициентов (A,B,C) не равен нулю.</p>
+</blockquote>
+<hr />
+<h1>18. Эллипс<a id="md662186"></a></h1>
+<h2>Dạng chính tắc<a id="u128326e"></a></h2>
+<p>$$
+\frac{x^2}{a^2}+\frac{y^2}{b^2}=1
+$$</p>
+<p>với:</p>
+<p>$$
+a>b>0
+$$</p>
+<hr />
+<h2>Эксцентриситет эллипса<a id="h7d92ab1"></a></h2>
+<p>$$
+e=\frac{c}{a}
+$$</p>
+<p>trong đó:</p>
+<p>$$
+c^2=a^2-b^2
+$$</p>
+<p>Với ellipse:</p>
+<p>$$
+0<e<1
+$$</p>
+<p>Nếu (e) càng gần 0 thì ellipse càng giống hình tròn. Nếu (e) càng gần 1 thì ellipse càng dẹt.</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="tda8fa9d"></a></h2>
+<blockquote>
+<p>Эксцентриситет эллипса — это отношение расстояния от центра до фокуса к большой полуоси:
+$$e=\frac{c}{a}.$$
+Для эллипса (0&lt;e&lt;1).</p>
+</blockquote>
+<hr />
+<h1>19. Гипербола<a id="s839181c"></a></h1>
+<h2>Dạng chính tắc<a id="hf25f0b1"></a></h2>
+<p>$$
+\frac{x^2}{a^2}-\frac{y^2}{b^2}=1
+$$</p>
+<p>hoặc:</p>
+<p>$$
+\frac{y^2}{b^2}-\frac{x^2}{a^2}=1
+$$</p>
+<p>Hyperbola có hai nhánh và có tiệm cận.</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="hcac0121"></a></h2>
+<blockquote>
+<p>Гипербола — это кривая второго порядка, каноническое уравнение которой имеет вид:
+$$\frac{x^2}{a^2}-\frac{y^2}{b^2}=1.$$</p>
+</blockquote>
+<hr />
+<h1>20. Парабола<a id="v3e6722f"></a></h1>
+<h2>Dạng chính tắc<a id="q225f56a"></a></h2>
+<p>$$
+y^2=2px
+$$</p>
+<p>hoặc:</p>
+<p>$$
+x^2=2py
+$$</p>
+<p>Parabola là tập hợp điểm cách đều một điểm cố định gọi là <strong>фокус</strong> và một đường thẳng cố định gọi là <strong>директриса</strong>.</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="kdac02b4"></a></h2>
+<blockquote>
+<p>Парабола — это множество точек плоскости, равноудалённых от фокуса и директрисы. Её каноническое уравнение:
+$$y^2=2px.$$</p>
+</blockquote>
+<hr />
+<h1>21. Liên hệ giữa quadratic forms và conics<a id="t04f943d"></a></h1>
+<p>Đây là câu rất quan trọng trong базовый минимум.</p>
+<p>Phương trình đường bậc hai:</p>
+<p>$$
+Ax^2+Bxy+Cy^2+Dx+Ey+F=0
+$$</p>
+<p>Phần:</p>
+<p>$$
+Ax^2+Bxy+Cy^2
+$$</p>
+<p>là <strong>квадратичная форма</strong>.</p>
+<p>Khi ta đưa quadratic form này về canonical form, ta có thể loại tích chéo (xy), tức là đưa đường bậc hai về dạng đơn giản hơn.</p>
+<hr />
+<h2>Cách nói bằng tiếng Nga<a id="qfac05da"></a></h2>
+<blockquote>
+<p>Квадратичные формы связаны с кривыми второго порядка так: квадратичная часть общего уравнения кривой второго порядка является квадратичной формой:
+$$Ax^2+Bxy+Cy^2.$$
+Приведение этой формы к каноническому виду помогает привести уравнение кривой второго порядка к каноническому виду.</p>
+</blockquote>
+<hr />
+<h1>22. Bộ câu trả lời ngắn cần thuộc<a id="h9d0ad01"></a></h1>
+<p>Bạn có thể học nguyên phần này để đi kiểm tra.</p>
+<h2>1. Что такое квадратичная форма?<a id="s974553c"></a></h2>
+<blockquote>
+<p>Квадратичная форма — это однородный многочлен второй степени от координат вектора. В матричном виде:
+$$Q(x)=x^T A x.$$</p>
+</blockquote>
+<h2>2. Что такое канонический вид квадратичной формы?<a id="qecd5c5a"></a></h2>
+<blockquote>
+<p>Это вид без смешанных членов, то есть сумма квадратов с коэффициентами:
+$$Q=\lambda_1 y_1^2+\dots+\lambda_n y_n^2.$$</p>
+</blockquote>
+<h2>3. Что такое нормальный вид квадратичной формы?<a id="kb405094"></a></h2>
+<blockquote>
+<p>Это вид, в котором коэффициенты при квадратах равны только (1), (-1) или (0).</p>
+</blockquote>
+<h2>4. Любую ли квадратичную форму можно привести к нормальному виду?<a id="if3d0542"></a></h2>
+<blockquote>
+<p>Да, любую квадратичную форму над вещественным пространством можно привести к нормальному виду невырожденным линным преобразованием.</p>
+</blockquote>
+<h2>5. Что такое индекс инерции?<a id="o9f58928"></a></h2>
+<blockquote>
+<p>Индексы инерции — это количество положительных и отрицательных квадратов в нормальном виде квадратичной формы.</p>
+</blockquote>
+<h2>6. Что такое критерий Сильвестра?<a id="n676dc57"></a></h2>
+<blockquote>
+<p>Квадратичная форма положительно определена тогда и только тогда, когда все главные угловые миноры её матрицы положительны:
+$$\Delta_1>0,\Delta_2>0,\dots,\Delta_n>0.$$</p>
+</blockquote>
+<h2>7. Геометрический смысл скалярного произведения?<a id="s94751ec"></a></h2>
+<blockquote>
+<p>Скалярное произведение связано с длинами векторов и углом между ними:
+$$\vec a\cdot\vec b=|\vec a||\vec b|\cos\varphi.$$
+Если оно равно нулю, то векторы ортогональны.</p>
+</blockquote>
+<h2>8. Геометрический смысл векторного произведения?<a id="l1b47fd5"></a></h2>
+<blockquote>
+<p>Длина векторного произведения равна площади параллелограмма, построенного на двух векторах:
+$$|\vec a\times\vec b|=|\vec a||\vec b|\sin\varphi.$$</p>
+</blockquote>
+<h2>9. Геометрический смысл смешанного произведения?<a id="n3f69757"></a></h2>
+<blockquote>
+<p>Модуль смешанного произведения равен объёму параллелепипеда, построенного на трёх векторах. Если смешанное произведение равно нулю, то векторы компланарны.</p>
+</blockquote>
+<h2>10. Условие параллельности двух прямых?<a id="tcac12fd"></a></h2>
+<blockquote>
+<p>Две прямые параллельны, если их направляющие векторы коллинеарны.</p>
+</blockquote>
+<h2>11. Условие ортогональности двух плоскостей?<a id="ha634131"></a></h2>
+<blockquote>
+<p>Две плоскости ортогональны, если их нормальные векторы ортогональны:
+$$\vec n_1\cdot\vec n_2=0.$$</p>
+</blockquote>
+<h2>12. Что такое кривая второго порядка?<a id="t6fc798d"></a></h2>
+<blockquote>
+<p>Это множество точек плоскости, координаты которых удовлетворяют уравнению второй степени:
+$$Ax^2+Bxy+Cy^2+Dx+Ey+F=0.$$</p>
+</blockquote>
+<h2>13. Что такое эксцентриситет эллипса?<a id="vcb5612f"></a></h2>
+<blockquote>
+<p>Эксцентриситет эллипса — это отношение расстояния от центра до фокуса к большой полуоси:
+$$e=\frac{c}{a}.$$</p>
+</blockquote>
+<h2>14. Как связаны квадратичные формы и кривые второго порядка?<a id="rdedb09b"></a></h2>
+<blockquote>
+<p>Квадратичная часть общего уравнения кривой второго порядка является квадратичной формой:
+$$Ax^2+Bxy+Cy^2.$$</p>
+</blockquote>
+<hr />
+<h1>23. Cách bạn nên học phần này ngay bây giờ<a id="tc4e3acd"></a></h1>
+<p>Bạn học theo 3 lượt:</p>
+<h3>Lượt 1 — đọc hiểu tiếng Việt<a id="qecec81a"></a></h3>
+<p>Đọc từ mục 1 đến mục 21 để hiểu bản chất.</p>
+<h3>Lượt 2 — học câu tiếng Nga<a id="h7739f1"></a></h3>
+<p>Tập trung học thuộc mục 22.</p>
+<h3>Lượt 3 — tự trả lời không nhìn tài liệu<a id="r24efa2b"></a></h3>
+<p>Tự hỏi:</p>
+<ul>
+<li>Что такое квадратичная форма?</li>
+<li>Что такое нормальный вид?</li>
+<li>Что такое индекс инерции?</li>
+<li>Какой геометрический смысл смешанного произведения?</li>
+<li>Условие ортогональности двух плоскостей?</li>
+<li>Что такое кривая второго порядка?</li>
+</ul>
+<p>Nếu câu nào bạn trả lời không mượt trong 20 giây, đánh dấu học lại.</p>
+<hr />
+<p>Bước tiếp theo nên là mình <strong>kiểm tra miệng bạn phần Базовый минимум</strong>: mình hỏi từng câu bằng tiếng Nga, bạn thử trả lời, rồi mình sửa thành câu chuẩn để bạn học thuộc.</p>
+
+</article>
+</div>
+</div>
+<script>
+var CHECK_SVG='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+var COPY_SVG='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+
+(function(){
+  document.querySelectorAll('.cbcopy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var el=btn.closest('.cbwrap').querySelector('pre code');
+      var text=el?el.textContent:'';
+      navigator.clipboard.writeText(text).then(function(){
+        btn.classList.add('ok');btn.innerHTML=CHECK_SVG+'<span>Copied!</span>';
+        setTimeout(function(){btn.classList.remove('ok');btn.innerHTML=COPY_SVG+'<span>Copy</span>';},2000);
+      }).catch(function(){});
+    });
+  });
+})();
+
+(function(){
+  var links = document.querySelectorAll('.toc a'), anchors = Array.from(document.querySelectorAll('.md-body a[id]'));
+  var scroller = document.querySelector('.main-content');
+  if (!links.length || !anchors.length || !scroller) return;
+
+  // Anchors currently inside the wide (~190% of scroller height) band below.
+  // On a long doc this stays a handful of headings, so re-measuring just
+  // these — instead of every heading on every firing — keeps scroll smooth.
+  var inBand = new Set();
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) inBand.add(en.target);
+      else inBand.delete(en.target);
+    });
+
+    // Khi có bất kỳ sự thay đổi vị trí nào, quét danh sách để tìm vị trí tối ưu
+    var scrollerTop = scroller.getBoundingClientRect().top;
+    var targetLine = scrollerTop + scroller.clientHeight * 0.1; // Vạch đích 10%
+
+    var bestAnchor = null;
+    var maxTopAboveLine = -Infinity;
+
+    inBand.forEach(function(a) {
+      var aTop = a.getBoundingClientRect().top;
+      // Tìm tiêu đề nằm gần vạch 10% nhất nhưng phải ở phía trên vạch đó
+      if (aTop <= targetLine) {
+        if (aTop > maxTopAboveLine) {
+          maxTopAboveLine = aTop;
+          bestAnchor = a.id;
+        }
+      }
+    });
+
+    if (bestAnchor) setActive(bestAnchor);
+  }, {
+    root: scroller,
+    // Vùng kích hoạt mở rộng lên 30% để không bao giờ bị trượt mất phần tử khi cuộn nhanh
+    //rootMargin: '0px 0px -70% 0px',
+    rootMargin: '100% 0px -90% 0px',
+    threshold: 0
+  });
+
+  function setActive(id) {
+    links.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+    });
+    var activeLink = document.querySelector('.toc a.active');
+    if (activeLink) activeLink.scrollIntoView({ block: 'nearest' });
+  }
+
+  anchors.forEach(function(a){ io.observe(a); });
+})();
+
+(function() {
+  var tocCol = document.querySelector('.toc-col');
+  var sbBtn = document.getElementById('sb-btn');
+  var sbClose = document.getElementById('sb-close');
+  var open = false;
+
+  if (!sbBtn || !tocCol) {
+    return;
+  }
+
+  function setOpen(val) {
+    open = val;
+    tocCol.classList.toggle('sb-closed', !val);
+    sbBtn.setAttribute('aria-expanded', val);
+    sbBtn.style.setProperty('--tooltip-content', val ? '"Close Sidebar"' : '"Open Sidebar"');
+  }
+  setOpen(false);
+
+  sbBtn.addEventListener('click', function() {setOpen(!open);});
+  if(sbClose){sbClose.addEventListener('click',function(){setOpen(false);});}
+})();
+
+(function(){
+  var track=document.getElementById('theme-track');
+  if(!track)return;
+  var htmlEl=document.documentElement;
+  var opts=track.querySelectorAll('.tt-opt');
+
+  function applyTheme(dark,animate){
+    htmlEl.classList.add('notransition');
+    htmlEl.setAttribute('data-theme',dark?'dark':'light');
+    if(animate){
+      track.classList.add('animating');
+      track.querySelector('.tt-pill').addEventListener('transitionend',function(){track.classList.remove('animating');},{once:true});
+    }
+    opts[0].classList.toggle('active',!dark);
+    opts[1].classList.toggle('active',dark);
+    opts[0].setAttribute('aria-checked',dark?'false':'true');
+    opts[1].setAttribute('aria-checked',dark?'true':'false');
+    opts[0].setAttribute('tabindex',dark?'-1':'0');
+    opts[1].setAttribute('tabindex',dark?'0':'-1');
+    try{localStorage.setItem('md-theme',dark?'dark':'light');}catch(_){}
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){htmlEl.classList.remove('notransition');});
+    });
+  }
+
+  var initDark=htmlEl.getAttribute('data-theme')==='dark';
+  applyTheme(initDark,false);
+
+  track.addEventListener('click',function(e){
+    var opt=e.target.closest('.tt-opt');
+    var dark=htmlEl.getAttribute('data-theme')==='dark';
+    applyTheme(opt?opt.dataset.val==='dark':!dark,true);
+  });
+
+  track.addEventListener('keydown',function(e){
+    var dark=htmlEl.getAttribute('data-theme')==='dark';
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'){
+      e.preventDefault();
+      if(!dark){applyTheme(true,true);opts[1].focus();}
+    } else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){
+      e.preventDefault();
+      if(dark){applyTheme(false,true);opts[0].focus();}
+    } else if(e.key===' '||e.key==='Enter'){
+      e.preventDefault();
+      applyTheme(!dark,true);
+      (dark?opts[0]:opts[1]).focus();
+    }
+  });
+})();
+</script>
+<!-- KaTeX: defer both scripts; auto-render fires after DOM is ready -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false})">
+</script>
+</body>
+</html>
